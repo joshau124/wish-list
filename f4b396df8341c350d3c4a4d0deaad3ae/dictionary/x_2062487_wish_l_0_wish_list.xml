@@ -4,6 +4,7 @@
         <element label="Quantity" max_length="40" name="quantity" type="integer"/>
         <element display="true" label="Item" mandatory="true" max_length="120" name="item" type="string"/>
         <element label="Requester" mandatory="true" max_length="32" name="requester" reference="sys_user" type="reference"/>
+        <element label="Display Name" max_length="40" name="display_name" read_only="true" read_only_option="display_read_only" type="string"/>
         <index name="index">
             <element name="requester"/>
         </index>
