@@ -1,10 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?><database>
     <element attributes="enforce_dot_walk_cross_scope_access=true" db_object_id="dde35edf8341c350d3c4a4d0deaad384" label="wish list" max_length="40" name="x_2062487_wish_l_0_wish_list" type="collection">
+        <element label="Display Name" max_length="40" name="display_name" read_only="true" read_only_option="display_read_only" type="string"/>
         <element label="url" max_length="1024" name="url" type="url"/>
         <element label="Quantity" max_length="40" name="quantity" type="integer"/>
-        <element display="true" label="Item" mandatory="true" max_length="120" name="item" type="string"/>
-        <element label="Requester" mandatory="true" max_length="32" name="requester" reference="sys_user" type="reference"/>
-        <element label="Display Name" max_length="40" name="display_name" read_only="true" read_only_option="display_read_only" type="string"/>
+        <element label="Item" mandatory="true" max_length="120" name="item" type="string"/>
+        <element default="javascript:incidentGetCaller()" display="true" dynamic_default_value="0d39d9105f220100a9ad2572f2b47796" label="Requester" mandatory="true" max_length="32" name="requester" reference="sys_user" type="reference" use_dynamic_default="true"/>
+        <element choice="3" default="1" label="State" max_length="40" name="state" type="integer">
+            <choice>
+                <element inactive_on_update="false" label="Accepted" sequence="2" value="3"/>
+                <element inactive_on_update="false" label="Requested" sequence="0" value="1"/>
+                <element inactive_on_update="false" label="Closed" sequence="3" value="4"/>
+                <element inactive_on_update="false" label="Rejected" sequence="1" value="2"/>
+            </choice>
+        </element>
         <index name="index">
             <element name="requester"/>
         </index>
